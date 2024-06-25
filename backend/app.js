@@ -15,6 +15,9 @@ app.use(cors())
 //routes
 readdirSync('./routes').map((route) => app.use('/api/v1', require('./routes/' + route)))
 
+// auth routes
+app.use('/api/v1/auth', require('./routes/auth'));
+
 const server = () => {
     db()
     app.listen(PORT, () => {
